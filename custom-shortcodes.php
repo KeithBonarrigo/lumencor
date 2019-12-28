@@ -54,15 +54,21 @@ function page_tags_related_function( $atts = array() ) {
     $output .= "
 		<style>
 			.tag-container { width:325px; height:190px; border: solid 1px #000; display:inline; float: left; margin-right:30px; }
-			.tag-lower-bar { background-color:#12ab37; text-align:center; padding:3px; font-size:14px; width:324px; line-height:50px; vertical-align: middle;  }
-			.tag-lower-bar a { color: white;  }
+			.tag-lower-bar { background-color:#eeeeee; text-align:center; padding:3px; font-size:14px; width:324px; line-height:50px; vertical-align: middle;  }
+			.tag-lower-bar:hover { background-color:#13b139; }
+
 			img.tag-image { width:326px; height:130px; }
 			div.clear { clear:both; height:40px; }
 			.tag-header, h3.crp-list-title { padding-bottom:20px; margin-bottom:24px; border:solid 2px #eeeeee; border-width:0px 0px 2px 0px;  }
+			
+			.crp-list-item:hover { background-color:#13b139; }
 			.crp-list-item-has-image { margin-left:0px; }
 			.crp-list-item-title { font-size:13px; }
 			.learning-content-image { width:200px; height:200px; float:left; margin:0px 15px 5px 0px; }
 			.hr-sub-header { height:2px; background-color:#eeeeee; margin-bottom:24px !important; }
+			
+			.tag-lower-bar a.tag-link { color: #000;  }
+			.tag-lower-bar a.tag-link:hover { color:#FFF; background-color: #13b139; }
 		</style>
     ";
 
@@ -94,11 +100,13 @@ function page_tags_related_function( $atts = array() ) {
 	    		$output .= "<img src='noimage.jpg' class='tag-image' />";
 	    	}
 
-	    	$output .=	"<div class='tag-lower-bar'>".$this_tag_image."<a href='".$this_link."'>".$tag->name."</a></div>
+	    	$output .=	"<div class='tag-lower-bar'>".$this_tag_image."<a class='tag-link' href='".$this_link."'>".$tag->name."</a></div>
 	    		</div>
 	    	";
 	    }
-	    
+		
+			
+
 			$stuff = ob_get_contents();
     		ob_end_clean();
     		$output .= $stuff;
@@ -106,7 +114,22 @@ function page_tags_related_function( $atts = array() ) {
 	    $output .= str_replace("Related Posts", "Related Topics", do_shortcode( '[custom-related-posts]' ));
 	}
 	$output .= "<div class='clear'></div>";
+	$output .= '
+			<script>
+			jQuery( ".tag-lower-bar" ).mouseover(function() {
+				jQuery(this).children().css("color","#FFF");
+			  });
+			  jQuery( ".tag-lower-bar" ).mouseout(function() {
+				jQuery(this).children().css("color","#000");
+			  });
 
+			  jQuery( ".crp-list-item" ).mouseover(function() {
+				jQuery(this).find( "a" ).css( "color", "#FFF" );
+			  });
+			  jQuery( ".crp-list-item" ).mouseout(function() {
+				jQuery(this).find( "a" ).css( "color", "#000" );
+			  });
+			</script>';
     return $output; //return the array
 }
 add_shortcode('page_tags', 'page_tags_related_function');
