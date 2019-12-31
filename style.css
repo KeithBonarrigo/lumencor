@@ -4937,3 +4937,26 @@ footer {
 	background-color: #317dbf;
     background-image: url(/wp-content/uploads/2019/12/lightengine-details.jpg);
 }
+
+/*--tags and topics---------------------------------------*/
+.tags-topics-tile { display: inline; float:left; margin:0px 20px 5px 0px; padding-right:10px; background-color:#eeeeee; }
+.tags-topics-tile:hover { cursor: pointer; cursor: hand; background-color:#13b139; }
+.tags-topics-image { width:50px; height:50px;margin-right:10px; vertical-align:middle; }
+
+.tag-container { width:325px; height:188px; border: solid 1px #000; display:inline; float: left; margin-right:30px; }
+.tag-lower-bar { border:solid 1px #000; border-width: 0px 1px 1px 0px; background-color:#eeeeee; text-align:center; padding:0px; font-size:14px; width:324px; line-height:50px; vertical-align: middle;  }
+.tag-lower-bar:hover { cursor: pointer; cursor: hand; background-color:#13b139; }
+
+img.tag-image { width:326px; height:130px; border:none; }
+div.clear { clear:both; height:40px; }
+.tag-header, h3.crp-list-title { padding-bottom:20px; margin-bottom:24px; border:solid 2px #eeeeee; border-width:0px 0px 2px 0px;  }
+			
+.crp-list-item:hover { cursor: pointer; cursor: hand; background-color:#13b139; }
+.crp-list-item-has-image { margin-left:0px; }
+.crp-list-item-title { font-size:13px; }
+.learning-content-image { width:200px; height:200px; float:left; margin:0px 15px 5px 0px; }
+.hr-sub-header { height:2px; background-color:#eeeeee; margin-bottom:24px !important; }
+			
+.tag-lower-bar a.tag-link { color: #000;  }
+.tag-lower-bar a.tag-link:hover { color:#FFF; background-color: #13b139; }
+/*--end tags and topics-----------------------------------*/
